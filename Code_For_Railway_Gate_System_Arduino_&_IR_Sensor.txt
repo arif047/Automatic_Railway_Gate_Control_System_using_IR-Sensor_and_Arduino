@@ -1,0 +1,23 @@
+#include<Servo.h>
+Servo servo;
+void setup(){
+	servo.attach(7);
+servo.write(0);
+pinMode(2,INPUT);
+pinMode(4,INPUT);
+delay(1000);
+}
+void loop(){
+	if(digitalRead(4)==LOW && digitalRead(2)==HIGH){
+			servo.write(0); //This will close the servo barier
+delay(200);
+}
+	if(digitalRead(2)==LOW && digitalRead(4)==HIGH){
+			servo.write(90); // This will open up the servo barier
+			delay(200);
+}
+	if(digitalRead(2)==LOW && digitalRead(4)==LOW){
+			servo.write(0);
+			delay(200);
+}
+}
